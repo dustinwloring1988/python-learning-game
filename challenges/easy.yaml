@@ -1,0 +1,167 @@
+- title: The Sum
+  difficulty: easy
+  description: "Write a function called 'add' that returns the sum of `a` and `b`."
+  example: "Example: add(1, 2) should return 3."
+  template: "def add(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def add(a, b):\n    return a + b\n"
+  tests:
+    - input: 'add(1, 2)'
+      expected: 3
+    - input: 'add(-1, 1)'
+      expected: 0
+    - input: 'add(0, 0)'
+      expected: 0
+
+- title: Multiply
+  difficulty: easy
+  description: "Write a function called 'multiply' that returns the product of `a` and `b`."
+  example: "Example: multiply(2, 3) should return 6."
+  template: "def multiply(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def multiply(a, b):\n    return a * b\n"
+  tests:
+    - input: 'multiply(2, 3)'
+      expected: 6
+    - input: 'multiply(-1, 1)'
+      expected: -1
+    - input: 'multiply(0, 0)'
+      expected: 0
+
+- title: Subtract
+  difficulty: easy
+  description: "Write a function called 'subtract' that returns the difference between `a` and `b`."
+  example: "Example: subtract(5, 3) should return 2."
+  template: "def subtract(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def subtract(a, b):\n    return a - b\n"
+  tests:
+    - input: 'subtract(5, 3)'
+      expected: 2
+    - input: 'subtract(10, 5)'
+      expected: 5
+    - input: 'subtract(0, 0)'
+      expected: 0
+
+- title: The Sum
+  difficulty: easy
+  description: "Write a function called 'add' that returns the sum of `a` and `b`."
+  example: "Example: add(1, 2) should return 3."
+  template: "def add(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def add(a, b):\n    return a + b\n"
+  tests:
+    - input: 'add(1, 2)'
+      expected: 3
+    - input: 'add(-1, 1)'
+      expected: 0
+    - input: 'add(0, 0)'
+      expected: 0
+
+- title: Multiply
+  difficulty: easy
+  description: "Write a function called 'multiply' that returns the product of `a` and `b`."
+  example: "Example: multiply(2, 3) should return 6."
+  template: "def multiply(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def multiply(a, b):\n    return a * b\n"
+  tests:
+    - input: 'multiply(2, 3)'
+      expected: 6
+    - input: 'multiply(-1, 1)'
+      expected: -1
+    - input: 'multiply(0, 0)'
+      expected: 0
+
+- title: Subtract
+  difficulty: easy
+  description: "Write a function called 'subtract' that returns the difference between `a` and `b`."
+  example: "Example: subtract(5, 3) should return 2."
+  template: "def subtract(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def subtract(a, b):\n    return a - b\n"
+  tests:
+    - input: 'subtract(5, 3)'
+      expected: 2
+    - input: 'subtract(10, 5)'
+      expected: 5
+    - input: 'subtract(0, 0)'
+      expected: 0
+
+- title: Concatenate Strings
+  difficulty: easy
+  description: "Write a function called 'concatenate' that concatenates two strings `s1` and `s2`."
+  example: "Example: concatenate('Hello', ' World') should return 'Hello World'."
+  template: "def concatenate(s1, s2):\n    # Write your code here\n    pass\n"
+  solution: "def concatenate(s1, s2):\n    return s1 + s2\n"
+  tests:
+    - input: 'concatenate("Hello", " World")'
+      expected: 'Hello World'
+    - input: 'concatenate("foo", "bar")'
+      expected: 'foobar'
+    - input: 'concatenate("", "test")'
+      expected: 'test'
+
+- title: Square a Number
+  difficulty: easy
+  description: "Write a function called 'square' that returns the square of a number `n`."
+  example: "Example: square(4) should return 16."
+  template: "def square(n):\n    # Write your code here\n    pass\n"
+  solution: "def square(n):\n    return n * n\n"
+  tests:
+    - input: 'square(4)'
+      expected: 16
+    - input: 'square(-3)'
+      expected: 9
+    - input: 'square(0)'
+      expected: 0
+
+- title: Convert to Uppercase
+  difficulty: easy
+  description: "Write a function called 'to_uppercase' that converts a string `s` to uppercase."
+  example: "Example: to_uppercase('hello') should return 'HELLO'."
+  template: "def to_uppercase(s):\n    # Write your code here\n    pass\n"
+  solution: "def to_uppercase(s):\n    return s.upper()\n"
+  tests:
+    - input: 'to_uppercase("hello")'
+      expected: 'HELLO'
+    - input: 'to_uppercase("World")'
+      expected: 'WORLD'
+    - input: 'to_uppercase("test")'
+      expected: 'TEST'
+
+- title: Check Even or Odd
+  difficulty: easy
+  description: "Write a function called 'is_even' that returns `True` if `n` is even, otherwise `False`."
+  example: "Example: is_even(4) should return True."
+  template: "def is_even(n):\n    # Write your code here\n    pass\n"
+  solution: "def is_even(n):\n    return n % 2 == 0\n"
+  tests:
+    - input: 'is_even(4)'
+      expected: True
+    - input: 'is_even(7)'
+      expected: False
+    - input: 'is_even(0)'
+      expected: True
+
+- title: Find Maximum
+  difficulty: easy
+  description: "Write a function called 'find_max' that returns the maximum of two numbers `a` and `b`."
+  example: "Example: find_max(5, 10) should return 10."
+  template: "def find_max(a, b):\n    # Write your code here\n    pass\n"
+  solution: "def find_max(a, b):\n    return max(a, b)\n"
+  tests:
+    - input: 'find_max(5, 10)'
+      expected: 10
+    - input: 'find_max(20, 10)'
+      expected: 20
+    - input: 'find_max(0, -1)'
+      expected: 0
+
+- title: Repeat String
+  difficulty: easy
+  description: "Write a function called 'repeat_string' that repeats a string `s` `n` times."
+  example: "Example: repeat_string('a', 3) should return 'aaa'."
+  template: "def repeat_string(s, n):\n    # Write your code here\n    pass\n"
+  solution: "def repeat_string(s, n):\n    return s * n\n"
+  tests:
+    - input: 'repeat_string("a", 3)'
+      expected: 'aaa'
+    - input: 'repeat_string("abc", 2)'
+      expected: 'abcabc'
+    - input: 'repeat_string("test", 0)'
+      expected: ''

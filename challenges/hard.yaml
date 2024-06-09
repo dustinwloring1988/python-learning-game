@@ -1,0 +1,216 @@
+- title: Prime Check
+  difficulty: hard
+  description: "Write a function called 'is_prime' that returns `True` if `n` is a prime number, otherwise `False`."
+  example: "Example: is_prime(7) should return True."
+  template: "def is_prime(n):\n    # Write your code here\n    pass\n"
+  solution: "def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n"
+  tests:
+    - input: 'is_prime(7)'
+      expected: True
+    - input: 'is_prime(10)'
+      expected: False
+    - input: 'is_prime(1)'
+      expected: False
+
+- title: Merge Sorted Arrays
+  difficulty: hard
+  description: "Write a function called 'merge_sorted_arrays' that merges two sorted arrays into one sorted array."
+  example: "Example: merge_sorted_arrays([1, 3, 5], [2, 4, 6]) should return [1, 2, 3, 4, 5, 6]."
+  template: "def merge_sorted_arrays(arr1, arr2):\n    # Write your code here\n    pass\n"
+  solution: "def merge_sorted_arrays(arr1, arr2):\n    return sorted(arr1 + arr2)\n"
+  tests:
+    - input: 'merge_sorted_arrays([1, 3, 5], [2, 4, 6])'
+      expected: [1, 2, 3, 4, 5, 6]
+    - input: 'merge_sorted_arrays([], [1, 2])'
+      expected: [1, 2]
+    - input: 'merge_sorted_arrays([1, 2], [])'
+      expected: [1, 2]
+
+- title: Longest Palindromic Substring
+  difficulty: hard
+  description: "Write a function called 'longest_palindrome' that returns the longest palindromic substring in a given string `s`."
+  example: "Example: longest_palindrome('babad') should return 'bab'."
+  template: "def longest_palindrome(s):\n    # Write your code here\n    pass\n"
+  solution: "def longest_palindrome(s):\n    def expand_around_center(s, left, right):\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return s[left + 1:right]\n    longest = ''\n    for i in range(len(s)):\n        odd_pal = expand_around_center(s, i, i)\n        even_pal = expand_around_center(s, i, i + 1)\n        longest = max(longest, odd_pal, even_pal, key=len)\n    return longest\n"
+  tests:
+    - input: 'longest_palindrome("babad")'
+      expected: 'bab'
+    - input: 'longest_palindrome("cbbd")'
+      expected: 'bb'
+    - input: 'longest_palindrome("a")'
+      expected: 'a'
+
+- title: Longest Substring Without Repeating Characters
+  difficulty: hard
+  description: "Write a function called 'length_of_longest_substring' that returns the length of the longest substring without repeating characters in a given string `s`."
+  example: "Example: length_of_longest_substring('abcabcbb') should return 3."
+  template: "def length_of_longest_substring(s):\n    # Write your code here\n    pass\n"
+  solution: |
+    def length_of_longest_substring(s):
+        char_set = set()
+        left = 0
+        max_length = 0
+
+        for right in range(len(s)):
+            while s[right] in char_set:
+                char_set.remove(s[left])
+                left += 1
+            char_set.add(s[right])
+            max_length = max(max_length, right - left + 1)
+        
+        return max_length
+  tests:
+    - input: 'length_of_longest_substring("abcabcbb")'
+      expected: 3
+    - input: 'length_of_longest_substring("bbbbb")'
+      expected: 1
+    - input: 'length_of_longest_substring("pwwkew")'
+      expected: 3
+
+- title: Valid Parentheses
+  difficulty: hard
+  description: "Write a function called 'is_valid' that determines if a given string `s` containing just the characters '(', ')', '{', '}', '[' and ']', is valid. An input string is valid if: 1) Open brackets are closed by the same type of brackets. 2) Open brackets are closed in the correct order."
+  example: "Example: is_valid('()') should return True."
+  template: "def is_valid(s):\n    # Write your code here\n    pass\n"
+  solution: |
+    def is_valid(s):
+        stack = []
+        bracket_map = {')': '(', '}': '{', ']': '['}
+
+        for char in s:
+            if char in bracket_map:
+                top_element = stack.pop() if stack else '#'
+                if bracket_map[char] != top_element:
+                    return False
+            else:
+                stack.append(char)
+
+        return not stack
+  tests:
+    - input: 'is_valid("()")'
+      expected: True
+    - input: 'is_valid("()[]{}")'
+      expected: True
+    - input: 'is_valid("(]")'
+      expected: False
+
+- title: Merge Intervals
+  difficulty: hard
+  description: "Write a function called 'merge_intervals' that takes a list of intervals and merges all overlapping intervals."
+  example: "Example: merge_intervals([[1,3],[2,6],[8,10],[15,18]]) should return [[1,6],[8,10],[15,18]]."
+  template: "def merge_intervals(intervals):\n    # Write your code here\n    pass\n"
+  solution: |
+    def merge_intervals(intervals):
+        intervals.sort(key=lambda x: x[0])
+        merged = []
+        for interval in intervals:
+            if not merged or merged[-1][1] < interval[0]:
+                merged.append(interval)
+            else:
+                merged[-1][1] = max(merged[-1][1], interval[1])
+        return merged
+  tests:
+    - input: 'merge_intervals([[1,3],[2,6],[8,10],[15,18]])'
+      expected: [[1,6],[8,10],[15,18]]
+    - input: 'merge_intervals([[1,4],[4,5]])'
+      expected: [[1,5]]
+    - input: 'merge_intervals([[1,4],[2,3]])'
+      expected: [[1,4]]
+
+- title: Word Ladder
+  difficulty: hard
+  description: "Write a function called 'ladder_length' that returns the length of the shortest transformation sequence from `begin_word` to `end_word`, such that only one letter can be changed at a time and each transformed word must exist in the word list `word_list`."
+  example: "Example: ladder_length('hit', 'cog', ['hot','dot','dog','lot','log','cog']) should return 5."
+  template: "def ladder_length(begin_word, end_word, word_list):\n    # Write your code here\n    pass\n"
+  solution: |
+    from collections import deque
+
+    def ladder_length(begin_word, end_word, word_list):
+        if end_word not in word_list:
+            return 0
+        word_list = set(word_list)
+        queue = deque([(begin_word, 1)])
+
+        while queue:
+            current_word, length = queue.popleft()
+            if current_word == end_word:
+                return length
+
+            for i in range(len(current_word)):
+                for c in 'abcdefghijklmnopqrstuvwxyz':
+                    next_word = current_word[:i] + c + current_word[i+1:]
+                    if next_word in word_list:
+                        word_list.remove(next_word)
+                        queue.append((next_word, length + 1))
+
+        return 0
+  tests:
+    - input: 'ladder_length("hit", "cog", ["hot","dot","dog","lot","log","cog"])'
+      expected: 5
+    - input: 'ladder_length("hit", "hot", ["hot","dot","dog","lot","log","cog"])'
+      expected: 2
+    - input: 'ladder_length("hit", "cog", ["hot","dot","dog","lot","log"])'
+      expected: 0
+
+- title: Trapping Rain Water
+  difficulty: hard
+  description: "Write a function called 'trap' that takes a list of non-negative integers representing the height of bars in a histogram and returns the total amount of rainwater trapped."
+  example: "Example: trap([0,1,0,2,1,0,1,3,2,1,2,1]) should return 6."
+  template: "def trap(height):\n    # Write your code here\n    pass\n"
+  solution: |
+    def trap(height):
+        if not height:
+            return 0
+
+        left, right = 0, len(height) - 1
+        left_max, right_max = height[left], height[right]
+        water_trapped = 0
+
+        while left < right:
+            if left_max < right_max:
+                left += 1
+                left_max = max(left_max, height[left])
+                water_trapped += left_max - height[left]
+            else:
+                right -= 1
+                right_max = max(right_max, height[right])
+                water_trapped += right_max - height[right]
+
+        return water_trapped
+  tests:
+    - input: 'trap([0,1,0,2,1,0,1,3,2,1,2,1])'
+      expected: 6
+    - input: 'trap([4,2,0,3,2,5])'
+      expected: 9
+    - input: 'trap([2,0,2])'
+      expected: 2
+
+- title: Subarray Sum Equals K
+  difficulty: hard
+  description: "Write a function called 'subarray_sum' that takes a list of integers `nums` and an integer `k`, and returns the total number of continuous subarrays whose sum equals to `k`."
+  example: "Example: subarray_sum([1,1,1], 2) should return 2."
+  template: "def subarray_sum(nums, k):\n    # Write your code here\n    pass\n"
+  solution: |
+    def subarray_sum(nums, k):
+        count = 0
+        sum_map = {0: 1}
+        current_sum = 0
+
+        for num in nums:
+            current_sum += num
+            if current_sum - k in sum_map:
+                count += sum_map[current_sum - k]
+            if current_sum in sum_map:
+                sum_map[current_sum] += 1
+            else:
+                sum_map[current_sum] = 1
+
+        return count
+  tests:
+    - input: 'subarray_sum([1,1,1], 2)'
+      expected: 2
+    - input: 'subarray_sum([1,2,3], 3)'
+      expected: 2
+    - input: 'subarray_sum([1,-1,0], 0)'
+      expected: 3
+
