@@ -12,7 +12,7 @@ This is a Flask-based web application designed to help users practice and improv
 ## Folder Structure
 
 ```
-flask_training/
+python-learning-game/
 ├── app.py
 └── challenges/
     ├── easy.yaml
@@ -27,8 +27,8 @@ flask_training/
 
 1. **Clone the Repository**:
     ```sh
-    git clone https://github.com/yourusername/flask_training.git
-    cd flask_training
+    git clone https://github.com/dustinwloring1988/python-learning-game.git
+    cd python-learning-game
     ```
 
 2. **Install Dependencies**:
